@@ -1,0 +1,135 @@
+@startuml
+
+package rape.brutal.gitstarship {
+
+    package ships {
+
+        Starship <|-- GitStarship
+        Starship <|-- PirateStarship
+
+        abstract class Starship {
+            #Engine engine;
+            #Hull hull;
+            #Storage<IStoreable> storage;
+
+            +boolean putInStorage(IStoreable iStoreable);
+            +IStoreable getFromStorage(String iStoreableName);
+
+            -void flyTo(IReachable iReachable);
+
+            +void trade(Trader trader);
+
+            +void setDamage(int damage);
+            +int getHitPoints();
+
+            +void attack(IAttackable iAttackable);
+        }
+
+        class GitStarship {
+            -Railgun railgun;
+            -Turret rightTurret;
+            -Turret leftTurret;
+        }
+
+        class PirateStarship {
+            -Turret rightTurret;
+        }
+
+    }
+
+    package stuff {
+
+        ValuableItem <|-- TurretMagazineCase
+        ValuableItem <|-- MetalShell
+
+        class TurretMagazineCase {
+
+        }
+
+        class MetalShell {
+
+        }
+
+        abstract class ValuableItem {
+            -int value;
+        }
+
+    }
+
+    stuff <-[hidden]-- locations
+
+    package locations {
+
+        Trader -o Planet
+        SpacePort o-- Trader
+        Trader --o Asteroid
+        Caravan o- Trader
+
+        class Planet {
+
+        }
+
+        class SpacePort {
+
+        }
+
+        class Asteroid {
+
+        }
+
+        class Caravan {
+
+        }
+
+        class Trader {
+
+        }
+
+    }
+
+    IAttackable <|.. Starship
+
+    IAttacker <|.. GitStarship
+    IAttacker <|.. PirateStarship
+
+    IReachable <|.. Starship
+
+    ILander <|.. Starship
+    ILandable <|.. Planet
+    ILandable <|. SpacePort
+    ILandable <|... Asteroid
+
+    Starship o-- Storage
+
+    interface IAttackable {
+        +void setDamage(int damage);
+        +int getHitPoints();
+    }
+
+    interface IAttacker {
+        +void attack(IAttackable iAttackable);
+    }
+
+    interface IReachable {
+        +Coordinates getCoordinates();
+    }
+
+    interface ILandable {
+        +void setLander(ILander iLander);
+    }
+
+    interface ILander {
+        +void landTo(ILandable iLandable);
+        +void takeOff();
+    }
+
+    class Storage {
+        -HashMap<String, IStoreable> iStoreableHashMap;
+
+        +void add(IStoreable iStoreable);
+        +IStoreable get(String iStoreableName);
+    }
+
+}
+
+@enduml

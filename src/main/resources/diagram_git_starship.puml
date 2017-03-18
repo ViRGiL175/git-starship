@@ -2,36 +2,63 @@
 
 package rape.brutal.gitstarship {
 
-    package trade {
-
-    abstract class Trader {
-        -int cash;
+    class Universe {
+        -int kills;
+        -int spends;
+        +startUniverse();
+        +win();
+        +lose();
     }
 
-    class BaseTrader extends Trader {
-        +void trade();
-    }
-
-
-
-    class Mechanic extends Trader {
-        +void repair(int cash, String itemName);
-        +void upgrade(int cash, String itemName);
-    }
-
-    }
-
-    class Storage{
+    class Storage {
         -HashMap<String, IStorageable> storage
         +void add(String itemName);
         +void remove(String itemName);
         -int capacity;
     }
 
-    interface IStorageable {
-        +int getSize();
-        +String getName();
+    package trade {
 
+        abstract class Trader {
+            -int cash;
+        }
+
+        class BaseTrader extends Trader {
+            +void trade();
+        }
+
+        class Mechanic extends Trader {
+            +void repair(int cash, String itemName);
+            +void upgrade(int cash, String itemName);
+        }
+
+    }
+
+    package events {
+
+        +abstract class Event {
+            #Universe universe;
+            #GitStarship gitStarship;
+
+            +void start(GitStarship gitStarship);
+        }
+
+    }
+
+    interface ILandable {
+        +land(GitStarship gitStarship);
+    }
+
+    package locations {
+
+        Location <.- ILandable
+
+        +abstract class Location {
+            #GitStarship gitStarship;
+            #Trader trader;
+            #Storage storage;
+            #ArrayList<Starship> ships;
+        }
     }
 
     interface IAttackable {
@@ -39,56 +66,98 @@ package rape.brutal.gitstarship {
         +int getHitPoints();
     }
 
-        package ships {
+    package ships {
 
-            Starship <|-- GitStarship
-            Starship <|-- PirateStarship
+        Starship <|-- GitStarship
+        Starship <|-- PirateStarship
 
-            abstract class Starship implements IAttackable {
-                #Engine engine;
-                #Hull hull;
-                #Storage storage;
+        abstract class Starship implements IAttackable {
+            #Engine engine;
+            #Hull hull;
+            #Storage storage;
 
-                +boolean putInStorage(IStoreable iStoreable);
-                +IStoreable getFromStorage(String iStoreableName);
-                +void trade(Trader trader);
-                +void attack(IAttackable iAttackable);
-            }
+            +boolean putInStorage(IStoreable iStoreable);
+            +IStoreable getFromStorage(String iStoreableName);
+            +void trade(Trader trader);
+            +void attack(IAttackable iAttackable);
+        }
 
-            class GitStarship {
-
-            }
-
-            class PirateStarship {
-
-            }
+        class GitStarship {
 
         }
 
-        package parts {
+        class PirateStarship {
 
-        abstract class ShipPart implements IStorageable {
-        -int size;
         }
 
-        class Hull extends ShipPart{
-        -Gun gun[8];
-        +addGun();
-        +removeGun();
-        }
-
-        class Engine extends ShipPart{
-        -int condition;
-        -int power
-        }
     }
 
-    class Universe {
-    -int kills;
-    -int spends;
-    +startUniverse();
-    +win();
-    +lose();
+    interface IStorageable {
+        +int getSize();
+        +String getName();
+    }
+
+    package parts {
+
+        abstract class ShipPart implements IStorageable {
+            -int size;
+        }
+
+        class Hull extends ShipPart {
+            -Gun gun[8];
+            +addGun();
+            +removeGun();
+        }
+
+        class Engine extends ShipPart {
+            -int condition;
+            -int power;
+        }
+
+    }
+
+    package ammunition {
+
+        Gun <|-- Turret
+        Gun <|-- Railgun
+        Turret o-- Magazine
+        Magazine o- Ammo
+        Ammo o- AmmoType
+
+        +abstract class Gun {
+            #int baseDamage;
+
+            +void fire();
+        }
+
+        +class Turret {
+            -Magazine loadedMagazine;
+
+            +void reload(Magazine magazine);
+        }
+
+        +class Railgun {
+
+        }
+
+        +class Magazine {
+            -int capacity;
+            -Ammo[] ammo;
+
+            +void removeAmmo();
+        }
+
+        +class Ammo {
+            -int baseDamage;
+            -AmmoType ammoType;
+
+            +int getBaseDamage();
+        }
+
+        +enum AmmoType {
+
+        }
+
     }
 
 }

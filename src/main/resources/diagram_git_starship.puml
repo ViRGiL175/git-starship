@@ -5,9 +5,9 @@ package rape.brutal.gitstarship {
     class Universe {
         -int kills;
         -int spends;
-        +startUniverse();
-        +win();
-        +lose();
+        +void startUniverse();
+        +void win();
+        +void lose();
     }
 
     class Storage {
@@ -76,8 +76,8 @@ package rape.brutal.gitstarship {
             #Hull hull;
             #Storage storage;
 
-            +boolean putInStorage(IStoreable iStoreable);
-            +IStoreable getFromStorage(String iStoreableName);
+            +boolean putInStorage(IStoregable iStoregable);
+            +IStoregable getFromStorage(String iStoregableName);
             +void trade(Trader trader);
             +void attack(IAttackable iAttackable);
         }
@@ -105,8 +105,8 @@ package rape.brutal.gitstarship {
 
         class Hull extends ShipPart {
             -Gun gun[8];
-            +addGun();
-            +removeGun();
+            +void addGun();
+            +void removeGun();
         }
 
         class Engine extends ShipPart {

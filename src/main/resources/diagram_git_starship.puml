@@ -4,16 +4,17 @@ package rape.brutal.gitstarship {
 
     class Universe {
         -int kills;
-        -int spends;
+        -int moneySpends;
         +void startUniverse();
-        +void win();
-        +void lose();
+        +void winState();
+        +void loseState();
+        +void getStats();
     }
 
     class Storage {
-        -HashMap<String, IStorageable> storage
-        +void add(String itemName);
-        +void remove(String itemName);
+        -HashMap<String, IStorageable> items;
+        +void putItem(IStorageable iStorageable);
+        +void getItem(String itemName);
         -int capacity;
     }
 
@@ -21,10 +22,12 @@ package rape.brutal.gitstarship {
 
         abstract class Trader {
             -int cash;
+            -Storage storage;
         }
 
-        class BaseTrader extends Trader {
-            +void trade();
+        class AverageTrader extends Trader {
+            +void sell(int cash, String itemName);
+            +void buy(int cash, String itemName);
         }
 
         class Mechanic extends Trader {
@@ -90,6 +93,7 @@ package rape.brutal.gitstarship {
             #Engine engine;
             #Hull hull;
             #Storage storage;
+            -int hitPoints;
 
             +boolean putInStorage(IStoregable iStoregable);
             +IStoregable getFromStorage(String iStoregableName);
@@ -116,6 +120,7 @@ package rape.brutal.gitstarship {
 
         abstract class ShipPart implements IStorageable {
             -int size;
+            -String name;
         }
 
         class Hull extends ShipPart {
@@ -125,7 +130,6 @@ package rape.brutal.gitstarship {
         }
 
         class Engine extends ShipPart {
-            -int condition;
             -int power;
         }
 

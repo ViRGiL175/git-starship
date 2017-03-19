@@ -38,9 +38,14 @@ package rape.brutal.gitstarship {
 
         +abstract class Event {
             #Universe universe;
+            #Location location;
             #GitStarship gitStarship;
 
             +void start(GitStarship gitStarship);
+        }
+
+        +class Battle extends Event {
+
         }
 
     }
@@ -51,14 +56,24 @@ package rape.brutal.gitstarship {
 
     package locations {
 
-        Location <.- ILandable
-
         +abstract class Location {
             #GitStarship gitStarship;
-            #Trader trader;
-            #Storage storage;
-            #ArrayList<Starship> ships;
         }
+
+        +class Planet extends Location implements ILandable {
+            -Trader trader;
+            -Storage storage;
+        }
+
+        +class Asteroid extends Location  implements ILandable {
+            -Trader trader;
+            -Storage storage;
+        }
+
+        +class OpenSpace extends Location {
+            -ArrayList<Starship> ships;
+        }
+
     }
 
     interface IAttackable {
@@ -118,44 +133,40 @@ package rape.brutal.gitstarship {
 
     package ammunition {
 
-        Gun <|-- Turret
-        Gun <|-- Railgun
         Turret o-- Magazine
         Magazine o- Ammo
-        Ammo o- AmmoType
 
-        +abstract class Gun {
-            #int baseDamage;
+        +abstract class Gun implements IStorageable {
+            #int damage;
+            #String name;
+            #int size;
 
             +int fire();
         }
 
-        +class Turret {
+        +class Turret extends Gun {
             -Magazine loadedMagazine;
 
             +void reload(Magazine magazine);
         }
 
-        +class Railgun {
+        +class Railgun extends Gun {
 
         }
 
-        +class Magazine {
+        +class Magazine implements IStorageable {
             -int capacity;
             -Ammo[] ammo;
+            -String name;
+            -int size;
 
             +void removeAmmo();
         }
 
         +class Ammo {
-            -int baseDamage;
-            -AmmoType ammoType;
+            -int damageIncreasing;
 
-            +int getBaseDamage();
-        }
-
-        +enum AmmoType {
-
+            +int getDamageIncreasing();
         }
 
     }

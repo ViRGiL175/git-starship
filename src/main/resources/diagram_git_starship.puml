@@ -46,7 +46,7 @@ package rape.brutal.gitstarship {
     }
 
     interface ILandable {
-        +land(GitStarship gitStarship);
+        +void land(GitStarship gitStarship);
     }
 
     package locations {
@@ -127,7 +127,7 @@ package rape.brutal.gitstarship {
         +abstract class Gun {
             #int baseDamage;
 
-            +void fire();
+            +int fire();
         }
 
         +class Turret {

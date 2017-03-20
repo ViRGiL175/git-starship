@@ -47,8 +47,12 @@ package rape.brutal.gitstarship {
             +void start(GitStarship gitStarship);
         }
 
-        +class Battle extends Event {
+        +class Battle {
+            -Universe universe;
+            -GitStarship gitStarship;
+            -ArrayList<Starship> atackers;
 
+            +void startBattle();
         }
 
     }

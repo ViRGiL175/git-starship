@@ -2,132 +2,181 @@
 
 package rape.brutal.gitstarship {
 
-    package ships {
+    class Universe {
+        -int kills;
+        -int moneySpends;
+        +void startUniverse();
+        +void winState();
+        +void loseState();
+        +void getStats();
+    }
 
-        Starship <|-- GitStarship
-        Starship <|-- PirateStarship
+    class Storage {
+        -HashMap<String, IStorageable> items;
+        +void putItem(IStorageable iStorageable);
+        +void getItem(String itemName);
+        -int capacity;
+    }
 
-        abstract class Starship {
-            #Engine engine;
-            #Hull hull;
-            #Storage<IStoreable> storage;
+    package trade {
 
-            +boolean putInStorage(IStoreable iStoreable);
-            +IStoreable getFromStorage(String iStoreableName);
-
-            -void flyTo(IReachable iReachable);
-
-            +void trade(Trader trader);
-
-            +void setDamage(int damage);
-            +int getHitPoints();
-
-            +void attack(IAttackable iAttackable);
+        abstract class Trader {
+            -int cash;
+            -Storage storage;
         }
 
-        class GitStarship {
-            -Railgun railgun;
-            -Turret rightTurret;
-            -Turret leftTurret;
+        class AverageTrader extends Trader {
+            +void sell(int cash, String itemName);
+            +void buy(int cash, String itemName);
         }
 
-        class PirateStarship {
-            -Turret rightTurret;
+        class Mechanic extends Trader {
+            +void repair(int cash, String itemName);
+            +void upgrade(int cash, String itemName);
         }
 
     }
 
-    package stuff {
+    package events {
 
-        ValuableItem <|-- TurretMagazineCase
-        ValuableItem <|-- MetalShell
+        +abstract class Event {
+            #Universe universe;
+            #Location location;
+            #GitStarship gitStarship;
 
-        class TurretMagazineCase {
-
+            +void start(GitStarship gitStarship);
         }
 
-        class MetalShell {
+        +class Battle {
+            -Universe universe;
+            -GitStarship gitStarship;
+            -ArrayList<Starship> atackers;
 
-        }
-
-        abstract class ValuableItem {
-            -int value;
+            +void startBattle();
         }
 
     }
 
-    stuff <-[hidden]-- locations
+    interface ILandable {
+        +void land(GitStarship gitStarship);
+    }
 
     package locations {
 
-        Trader -o Planet
-        SpacePort o-- Trader
-        Trader --o Asteroid
-        Caravan o- Trader
-
-        class Planet {
-
+        +abstract class Location {
+            #GitStarship gitStarship;
         }
 
-        class SpacePort {
-
+        +class Planet extends Location implements ILandable {
+            -Trader trader;
+            -Storage storage;
         }
 
-        class Asteroid {
-
+        +class Asteroid extends Location  implements ILandable {
+            -Trader trader;
+            -Storage storage;
         }
 
-        class Caravan {
-
-        }
-
-        class Trader {
-
+        +class OpenSpace extends Location {
+            -ArrayList<Starship> ships;
         }
 
     }
-
-    IAttackable <|.. Starship
-
-    IAttacker <|.. GitStarship
-    IAttacker <|.. PirateStarship
-
-    IReachable <|.. Starship
-
-    ILander <|.. Starship
-    ILandable <|.. Planet
-    ILandable <|. SpacePort
-    ILandable <|... Asteroid
-
-    Starship o-- Storage
 
     interface IAttackable {
         +void setDamage(int damage);
         +int getHitPoints();
     }
 
-    interface IAttacker {
-        +void attack(IAttackable iAttackable);
+    package ships {
+
+        Starship <|-- GitStarship
+        Starship <|-- PirateStarship
+
+        abstract class Starship implements IAttackable {
+            #Engine engine;
+            #Hull hull;
+            #Storage storage;
+            -int hitPoints;
+
+            +boolean putInStorage(IStoregable iStoregable);
+            +IStoregable getFromStorage(String iStoregableName);
+            +void trade(Trader trader);
+            +void attack(IAttackable iAttackable);
+        }
+
+        class GitStarship {
+
+        }
+
+        class PirateStarship {
+
+        }
+
     }
 
-    interface IReachable {
-        +Coordinates getCoordinates();
+    interface IStorageable {
+        +int getSize();
+        +String getName();
     }
 
-    interface ILandable {
-        +void setLander(ILander iLander);
+    package parts {
+
+        abstract class ShipPart implements IStorageable {
+            -int size;
+            -String name;
+        }
+
+        class Hull extends ShipPart {
+            -Gun gun[8];
+            +void addGun();
+            +void removeGun();
+        }
+
+        class Engine extends ShipPart {
+            -int power;
+        }
+
     }
 
-    interface ILander {
-        +void landTo(ILandable iLandable);
-        +void takeOff();
-    }
+    package ammunition {
 
-    class Storage {
-        -HashMap<String, IStoreable> iStoreableHashMap;
+        Turret o-- Magazine
+        Magazine o- Ammo
 
-        +void add(IStoreable iStoreable);
-        +IStoreable get(String iStoreableName);
+        +abstract class Gun implements IStorageable {
+            #int damage;
+            #String name;
+            #int size;
+
+            +int fire();
+        }
+
+        +class Turret extends Gun {
+            -Magazine loadedMagazine;
+
+            +void reload(Magazine magazine);
+        }
+
+        +class Railgun extends Gun {
+
+        }
+
+        +class Magazine implements IStorageable {
+            -int capacity;
+            -Ammo[] ammo;
+            -String name;
+            -int size;
+
+            +void removeAmmo();
+        }
+
+        +class Ammo {
+            -int damageIncreasing;
+
+            +int getDamageIncreasing();
+        }
+
     }
 
 }

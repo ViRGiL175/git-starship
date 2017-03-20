@@ -13,9 +13,9 @@ package rape.brutal.gitstarship {
 
     class Storage {
         -HashMap<String, IStorageable> items;
+        -int capacity;
         +void putItem(IStorageable iStorageable);
         +void getItem(String itemName);
-        -int capacity;
     }
 
     package trade {
@@ -26,13 +26,13 @@ package rape.brutal.gitstarship {
         }
 
         class AverageTrader extends Trader {
-            +void sell(int cash, String itemName);
-            +void buy(int cash, String itemName);
+            +boolean sell(int cash, String itemName);
+            +boolean buy(int cash, String itemName);
         }
 
         class Mechanic extends Trader {
-            +void repair(int cash, String itemName);
-            +void upgrade(int cash, String itemName);
+            +boolean repair(int cash, String itemName);
+            +boolean upgrade(int cash, String itemName);
         }
 
     }
@@ -44,15 +44,8 @@ package rape.brutal.gitstarship {
             #Location location;
             #GitStarship gitStarship;
 
+            +void Event(Universe universe, Location location, GitStarship gitStarship);
             +void start(GitStarship gitStarship);
-        }
-
-        +class Battle {
-            -Universe universe;
-            -GitStarship gitStarship;
-            -ArrayList<Starship> atackers;
-
-            +void startBattle();
         }
 
     }
@@ -79,6 +72,7 @@ package rape.brutal.gitstarship {
 
         +class OpenSpace extends Location {
             -ArrayList<Starship> ships;
+            -Storage storage;
         }
 
     }
@@ -99,6 +93,7 @@ package rape.brutal.gitstarship {
             #Storage storage;
             -int hitPoints;
 
+            +void Starship(Engine engine, Hull hull, Storage storage, int hitPoints);
             +boolean putInStorage(IStoregable iStoregable);
             +IStoregable getFromStorage(String iStoregableName);
             +void trade(Trader trader);
@@ -175,6 +170,17 @@ package rape.brutal.gitstarship {
             -int damageIncreasing;
 
             +int getDamageIncreasing();
+        }
+
+    }
+
+    package stuff {
+
+        +class MedicineChest implements IStorageable {
+            -int healthPoints;
+            -boolean used;
+
+            +void healing(String itemName);
         }
 
     }

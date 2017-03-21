@@ -5,7 +5,7 @@ package rape.brutal.gitstarship {
     class Universe {
         -int kills;
         -int moneySpends;
-        +void startUniverse();
+        +void journeyState();
         +void winState();
         +void loseState();
         +void getStats();
@@ -44,8 +44,8 @@ package rape.brutal.gitstarship {
             #Location location;
             #GitStarship gitStarship;
 
-            +void Event(Universe universe, Location location, GitStarship gitStarship);
-            +void start(GitStarship gitStarship);
+            +void Event(Universe universe, GitStarship gitStarship);
+            +void start();
         }
 
     }
@@ -58,21 +58,19 @@ package rape.brutal.gitstarship {
 
         +abstract class Location {
             #GitStarship gitStarship;
+            -Storage storage;
         }
 
         +class Planet extends Location implements ILandable {
             -Trader trader;
-            -Storage storage;
         }
 
         +class Asteroid extends Location  implements ILandable {
             -Trader trader;
-            -Storage storage;
         }
 
         +class OpenSpace extends Location {
             -ArrayList<Starship> ships;
-            -Storage storage;
         }
 
     }
@@ -87,7 +85,7 @@ package rape.brutal.gitstarship {
         Starship <|-- GitStarship
         Starship <|-- PirateStarship
 
-        abstract class Starship implements IAttackable {
+        abstract class Starship implements IAttackable, ILandable {
             #Engine engine;
             #Hull hull;
             #Storage storage;
@@ -170,17 +168,6 @@ package rape.brutal.gitstarship {
             -int damageIncreasing;
 
             +int getDamageIncreasing();
-        }
-
-    }
-
-    package stuff {
-
-        +class MedicineChest implements IStorageable {
-            -int healthPoints;
-            -boolean used;
-
-            +void healing(String itemName);
         }
 
     }

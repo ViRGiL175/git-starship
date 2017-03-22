@@ -9,6 +9,8 @@ package rape.brutal.gitstarship;
  * Created by haze on 22.03.2017.
  */
 public interface IAttackable {
-        public void setDamage(int damage);
-        public int getHitPoints();
+
+    void setDamage(int damage);
+
+    int getHitPoints();
 }

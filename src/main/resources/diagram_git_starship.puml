@@ -85,7 +85,7 @@ package rape.brutal.gitstarship {
         Starship <|-- GitStarship
         Starship <|-- PirateStarship
 
-        abstract class Starship implements IAttackable, ILandable {
+        abstract class Starship implements IAttackable {
             #Engine engine;
             #Hull hull;
             #Storage storage;

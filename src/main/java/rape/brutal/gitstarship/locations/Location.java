@@ -12,6 +12,7 @@ import rape.brutal.gitstarship.ships.GitStarship;
  * Created by haze on 22.03.2017.
  */
 public abstract class Location {
+
     protected GitStarship gitStarship;
     private Storage storage;
 

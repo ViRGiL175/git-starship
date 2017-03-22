@@ -9,6 +9,8 @@ package rape.brutal.gitstarship;
  * Created by haze on 22.03.2017.
  */
 public interface IStorageable {
-        public int getSize();
-        public String getName();
+
+    int getSize();
+
+    String getName();
 }

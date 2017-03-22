@@ -11,5 +11,6 @@ import rape.brutal.gitstarship.ships.GitStarship;
  * Created by haze on 22.03.2017.
  */
 public interface ILandable {
-        void land(GitStarship gitStarship);
+
+    void land(GitStarship gitStarship);
 }

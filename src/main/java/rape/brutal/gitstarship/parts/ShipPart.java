@@ -11,6 +11,25 @@ import rape.brutal.gitstarship.IStorageable;
  * Created by haze on 22.03.2017.
  */
 abstract public class ShipPart implements IStorageable {
-            private int size;
-            private String name;
+
+    private int size;
+    private String name;
+
+    @Override
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

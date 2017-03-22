@@ -11,31 +11,14 @@ import java.util.HashMap;
  * Created by haze on 22.03.2017.
  */
 public class Storage {
+        private HashMap<String, IStorageable> items;
+        private int capacity;
 
-    private HashMap<String, IStorageable> itemsHashMap;
-    private int capacity;
+        public void putItem(IStorageable iStorageable) {
 
-    public HashMap<String, IStorageable> getItemsHashMap() {
-        return itemsHashMap;
-    }
+        }
 
-    public void setItemsHashMap(HashMap<String, IStorageable> itemsHashMap) {
-        this.itemsHashMap = itemsHashMap;
-    }
+        public void getItem(String itemName) {
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public void putItem(IStorageable iStorageable) {
-
-    }
-
-    public void getItem(String itemName) {
-
-    }
+        }
 }

@@ -6,8 +6,8 @@
 package rape.brutal.gitstarship.ammunition;
 
 /**
- * Created by haze on 22.03.2017.
- */
+* Created by haze on 22.03.2017.
+*/
 public class Railgun extends Gun {
 
     @Override

@@ -9,16 +9,7 @@ package rape.brutal.gitstarship.parts;
  * Created by haze on 22.03.2017.
  */
 public class Engine extends ShipPart {
-
-    private int power;
-
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
+            private int power;
 
     @Override
     public int getSize() {

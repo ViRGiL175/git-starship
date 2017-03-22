@@ -6,17 +6,12 @@
 package rape.brutal.gitstarship.ammunition;
 
 /**
- * Created by haze on 22.03.2017.
- */
+* Created by haze on 22.03.2017.
+*/
 public class Ammo {
-
     private int damageIncreasing;
 
     public int getDamageIncreasing() {
         return 0;
-    }
-
-    public void setDamageIncreasing(int damageIncreasing) {
-        this.damageIncreasing = damageIncreasing;
     }
 }

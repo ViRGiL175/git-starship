@@ -12,15 +12,7 @@ import rape.brutal.gitstarship.ammunition.Gun;
  */
 public class Hull extends ShipPart {
 
-    private Gun[] gun = new Gun[8];
-
-    public Gun[] getGun() {
-        return gun;
-    }
-
-    public void setGun(Gun[] gun) {
-        this.gun = gun;
-    }
+    private Gun[] gun=new Gun[8];
 
     public void addGun() {
 

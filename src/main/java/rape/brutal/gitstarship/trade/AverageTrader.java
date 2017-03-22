@@ -8,8 +8,7 @@ package rape.brutal.gitstarship.trade;
 /**
  * Created by haze on 22.03.2017.
  */
-public class AverageTrader extends Trader {
-
+class AverageTrader extends Trader {
     public boolean sell(int cash, String itemName) {
         return false;
     }

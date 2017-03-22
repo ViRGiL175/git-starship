@@ -13,14 +13,5 @@ import java.util.ArrayList;
  * Created by haze on 22.03.2017.
  */
 public class OpenSpace extends Location {
-
-    private ArrayList<Starship> ships;
-
-    public ArrayList<Starship> getShips() {
-        return ships;
-    }
-
-    public void setShips(ArrayList<Starship> ships) {
-        this.ships = ships;
-    }
+            private ArrayList<Starship> ships;
 }

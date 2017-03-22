@@ -9,39 +9,22 @@ package rape.brutal.gitstarship;
  * Created by haze on 22.03.2017.
  */
 public class Universe {
+        private int kills;
+        private int moneySpends;
 
-    private int kills;
-    private int moneySpends;
+        public void journeyState() {
 
-    public void journeyState() {
+        }
 
-    }
+        public void winState() {
 
-    public int getKills() {
-        return kills;
-    }
+        }
 
-    public void setKills(int kills) {
-        this.kills = kills;
-    }
+        public void loseState() {
 
-    public int getMoneySpends() {
-        return moneySpends;
-    }
+        }
 
-    public void setMoneySpends(int moneySpends) {
-        this.moneySpends = moneySpends;
-    }
+        public void getStats() {
 
-    public void winState() {
-
-    }
-
-    public void loseState() {
-
-    }
-
-    public void getStats() {
-
-    }
+        }
 }

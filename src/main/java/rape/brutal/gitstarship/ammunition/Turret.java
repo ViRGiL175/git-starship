@@ -9,16 +9,7 @@ package rape.brutal.gitstarship.ammunition;
  * Created by haze on 22.03.2017.
  */
 public class Turret extends Gun {
-
     private Magazine loadedMagazine;
-
-    public Magazine getLoadedMagazine() {
-        return loadedMagazine;
-    }
-
-    public void setLoadedMagazine(Magazine loadedMagazine) {
-        this.loadedMagazine = loadedMagazine;
-    }
 
     public void reload(Magazine magazine) {
 

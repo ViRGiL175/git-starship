@@ -9,7 +9,6 @@ package rape.brutal.gitstarship.trade;
  * Created by haze on 22.03.2017.
  */
 public class Mechanic extends Trader {
-
     public boolean repair(int cash, String itemName) {
         return false;
     }

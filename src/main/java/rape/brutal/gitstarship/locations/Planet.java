@@ -13,16 +13,7 @@ import rape.brutal.gitstarship.trade.Trader;
  * Created by haze on 22.03.2017.
  */
 public class Planet extends Location implements ILandable {
-
-    private Trader trader;
-
-    public Trader getTrader() {
-        return trader;
-    }
-
-    public void setTrader(Trader trader) {
-        this.trader = trader;
-    }
+            private Trader trader;
 
     @Override
     public void land(GitStarship gitStarship) {

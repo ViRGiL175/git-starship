@@ -11,23 +11,6 @@ import rape.brutal.gitstarship.Storage;
  * Created by haze on 22.03.2017.
  */
 public abstract class Trader {
-
-    private int cash;
-    private Storage storage;
-
-    public int getCash() {
-        return cash;
-    }
-
-    public void setCash(int cash) {
-        this.cash = cash;
-    }
-
-    public Storage getStorage() {
-        return storage;
-    }
-
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
+            private int cash;
+            private Storage storage;
 }

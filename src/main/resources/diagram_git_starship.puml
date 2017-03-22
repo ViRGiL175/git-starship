@@ -12,7 +12,7 @@ package rape.brutal.gitstarship {
     }
 
     class Storage {
-        -HashMap<String, IStorageable> itemsHashMap;
+        -HashMap<String, IStorageable> items;
         -int capacity;
         +void putItem(IStorageable iStorageable);
         +void getItem(String itemName);

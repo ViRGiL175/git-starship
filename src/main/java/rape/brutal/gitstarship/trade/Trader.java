@@ -12,8 +12,8 @@ import rape.brutal.gitstarship.Storage;
  */
 public abstract class Trader {
 
-    private int cash;
-    private Storage storage;
+    protected int cash;
+    protected Storage storage;
 
     public int getCash() {
         return cash;

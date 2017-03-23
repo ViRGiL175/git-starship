@@ -114,7 +114,6 @@ package rape.brutal.gitstarship {
     }
 
     package parts {
-
         abstract class ShipPart implements IStorageable {
             -int size;
             -String name;
@@ -170,6 +169,24 @@ package rape.brutal.gitstarship {
             +int getDamageIncreasing();
         }
 
+    }
+
+    IValuable <|.. ShipPart
+
+    interface IValuable {
+        +int getCost();
+    }
+
+    interface IMagnitable {
+    }
+
+    package stuff {
+         +class Sheep implements IValuable, IStorageable{
+             -int cost;
+         }
+         +class Shrapnel implements IValuable, IStorageable, IMagnitable {
+             -int damage;
+         }
     }
 
 }

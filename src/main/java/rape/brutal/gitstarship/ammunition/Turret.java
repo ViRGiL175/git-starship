@@ -33,4 +33,9 @@ public class Turret extends Gun {
     public String getName() {
         return null;
     }
+
+    @Override
+    public int getCost() {
+        return 0;
+    }
 }

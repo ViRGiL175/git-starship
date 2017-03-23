@@ -172,6 +172,7 @@ package rape.brutal.gitstarship {
     }
 
     IValuable <|.. ShipPart
+    IValuable <|.. Gun
 
     interface IValuable {
         +int getCost();

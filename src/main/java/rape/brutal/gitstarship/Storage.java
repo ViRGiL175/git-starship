@@ -6,6 +6,7 @@
 package rape.brutal.gitstarship;
 
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by haze on 22.03.2017.
@@ -29,6 +30,10 @@ public class Storage {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public Set<String> getAllItemNames() {
+        return itemsHashMap.keySet();
     }
 
     public void putItem(IStorageable iStorageable) {

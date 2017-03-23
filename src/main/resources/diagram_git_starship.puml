@@ -14,6 +14,7 @@ package rape.brutal.gitstarship {
     class Storage {
         -HashMap<String, IStorageable> itemsHashMap;
         -int capacity;
+        +Set<String> getAllItemNames();
         +void putItem(IStorageable iStorageable);
         +void getItem(String itemName);
     }

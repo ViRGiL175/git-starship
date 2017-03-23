@@ -10,18 +10,22 @@ package rape.brutal.gitstarship.ammunition;
  */
 public class Railgun extends Gun {
 
+    private int cost;
+    private String name;
+    private int size;
+
     @Override
     public int getSize() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public int getCost() {
-        return 0;
+        return this.cost;
     }
 }

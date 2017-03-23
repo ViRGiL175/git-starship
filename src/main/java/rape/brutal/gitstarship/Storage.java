@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class Storage {
 
-    private HashMap<String, IStorageable> itemsHashMap;
+    protected HashMap<String, IStorageable> itemsHashMap;
     private int capacity;
 
     public HashMap<String, IStorageable> getItemsHashMap() {

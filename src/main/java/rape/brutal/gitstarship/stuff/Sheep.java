@@ -14,6 +14,8 @@ import rape.brutal.gitstarship.IValuable;
 public class Sheep implements IValuable, IStorageable {
 
     private int cost;
+    private String name;
+    private int size;
 
     @Override
     public int getCost() {
@@ -26,11 +28,11 @@ public class Sheep implements IValuable, IStorageable {
 
     @Override
     public int getSize() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 }

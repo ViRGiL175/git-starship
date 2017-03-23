@@ -6,11 +6,12 @@
 package rape.brutal.gitstarship.ammunition;
 
 import rape.brutal.gitstarship.IStorageable;
+import rape.brutal.gitstarship.IValuable;
 
 /**
  * Created by haze on 22.03.2017.
  */
-public abstract class Gun implements IStorageable {
+public abstract class Gun implements IStorageable, IValuable {
 
     protected int damage;
     protected String name;

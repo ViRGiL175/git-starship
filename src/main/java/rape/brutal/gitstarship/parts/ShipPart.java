@@ -6,11 +6,12 @@
 package rape.brutal.gitstarship.parts;
 
 import rape.brutal.gitstarship.IStorageable;
+import rape.brutal.gitstarship.IValuable;
 
 /**
  * Created by haze on 22.03.2017.
  */
-abstract public class ShipPart implements IStorageable {
+abstract public class ShipPart implements IStorageable, IValuable {
 
     private int size;
     private String name;

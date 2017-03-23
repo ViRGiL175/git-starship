@@ -29,4 +29,9 @@ public class Engine extends ShipPart {
     public String getName() {
         return null;
     }
+
+    @Override
+    public int getCost() {
+        return 0;
+    }
 }

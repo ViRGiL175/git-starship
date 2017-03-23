@@ -39,7 +39,7 @@ public class Magazine implements IStorageable {
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
     }
 
     public void setSize(int size) {
@@ -48,7 +48,7 @@ public class Magazine implements IStorageable {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     public void setName(String name) {

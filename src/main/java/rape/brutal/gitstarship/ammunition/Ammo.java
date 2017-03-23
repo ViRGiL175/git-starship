@@ -13,7 +13,7 @@ public class Ammo {
     private int damageIncreasing;
 
     public int getDamageIncreasing() {
-        return 0;
+        return damageIncreasing;
     }
 
     public void setDamageIncreasing(int damageIncreasing) {

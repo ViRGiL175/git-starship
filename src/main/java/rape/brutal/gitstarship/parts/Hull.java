@@ -12,6 +12,10 @@ import rape.brutal.gitstarship.ammunition.Gun;
  */
 public class Hull extends ShipPart {
 
+    private int cost;
+    private String name;
+    private int size;
+
     private Gun[] gun = new Gun[8];
 
     public Gun[] getGun() {
@@ -32,16 +36,16 @@ public class Hull extends ShipPart {
 
     @Override
     public int getSize() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public int getCost() {
-        return 0;
+        return this.cost;
     }
 }

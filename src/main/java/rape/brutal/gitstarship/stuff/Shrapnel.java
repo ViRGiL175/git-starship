@@ -15,6 +15,9 @@ import rape.brutal.gitstarship.IValuable;
 public class Shrapnel implements IMagnetable, IValuable, IStorageable {
 
     private int damage;
+    private int cost;
+    private String name;
+    private int size;
 
     public int getDamage() {
         return damage;
@@ -26,16 +29,16 @@ public class Shrapnel implements IMagnetable, IValuable, IStorageable {
 
     @Override
     public int getCost() {
-        return 0;
+        return this.cost;
     }
 
     @Override
     public int getSize() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 }

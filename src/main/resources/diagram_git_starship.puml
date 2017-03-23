@@ -22,8 +22,8 @@ package rape.brutal.gitstarship {
     package trade {
 
         abstract class Trader {
-            -int cash;
-            -Storage storage;
+            #int cash;
+            #Storage storage;
         }
 
         class AverageTrader extends Trader {

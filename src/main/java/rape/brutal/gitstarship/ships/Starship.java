@@ -8,6 +8,7 @@ package rape.brutal.gitstarship.ships;
 import rape.brutal.gitstarship.IAttackable;
 import rape.brutal.gitstarship.IStorageable;
 import rape.brutal.gitstarship.Storage;
+import rape.brutal.gitstarship.ammunition.Gun;
 import rape.brutal.gitstarship.parts.Engine;
 import rape.brutal.gitstarship.parts.Hull;
 import rape.brutal.gitstarship.trade.Trader;
@@ -21,6 +22,13 @@ abstract public class Starship implements IAttackable {
     protected Hull hull;
     protected Storage storage;
     private int hitPoints;
+
+    public Starship(Engine engine, Hull hull, Storage storage, int hitPoints) {
+        this.engine = engine;
+        this.hull = hull;
+        this.storage = storage;
+        this.hitPoints = hitPoints;
+    }
 
     public Engine getEngine() {
         return engine;
@@ -55,10 +63,6 @@ abstract public class Starship implements IAttackable {
         this.hitPoints = hitPoints;
     }
 
-    public void Starship(Engine engine, Hull hull, Storage storage, int hitPoints) {
-
-    }
-
     public boolean putInStorage(IStorageable iStorageable) {
         return false;
     }
@@ -72,6 +76,27 @@ abstract public class Starship implements IAttackable {
     }
 
     public void attack(IAttackable iAttackable) {
-
+        iAttackable.setDamage(generateDamage());
     }
+
+    private int generateDamage() {
+        Gun[] guns = hull.getGun();
+        int damage = 0;
+        for (Gun gun : guns) {
+            damage += gun.fire();
+        }
+        return damage;
+    }
+
+    @Override
+    public void setDamage(int damage) {
+        if (getHitPoints() <= damage) {
+            onDestroy();
+        } else {
+            setHitPoints(getHitPoints() - damage);
+        }
+    }
+
+    protected abstract void onDestroy();
+
 }

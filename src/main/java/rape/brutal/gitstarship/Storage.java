@@ -36,11 +36,13 @@ public class Storage {
         return itemsHashMap.keySet();
     }
 
-    public void putItem(IStorageable iStorageable) {
+    public boolean putItem(IStorageable iStorageable) {
 
+        return false;
     }
 
-    public void getItem(String itemName) {
+    public IStorageable getItem(String itemName) {
 
+        return this.itemsHashMap.get(itemName);
     }
 }

@@ -15,8 +15,8 @@ package rape.brutal.gitstarship {
         -HashMap<String, IStorageable> itemsHashMap;
         -int capacity;
         +Set<String> getAllItemNames();
-        +void putItem(IStorageable iStorageable);
-        +void getItem(String itemName);
+        +boolean putItem(IStorageable iStorageable);
+        +iStorageable getItem(String itemName);
     }
 
     package trade {

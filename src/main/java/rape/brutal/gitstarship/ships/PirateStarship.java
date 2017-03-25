@@ -5,9 +5,28 @@
 
 package rape.brutal.gitstarship.ships;
 
+import rape.brutal.gitstarship.Storage;
+import rape.brutal.gitstarship.parts.Engine;
+import rape.brutal.gitstarship.parts.Hull;
+
+import java.util.ArrayList;
+
 /**
  * Created by haze on 22.03.2017.
  */
-public class PirateStarship {
+public class PirateStarship extends Starship {
 
+    private ArrayList<Starship> shipsFleetArrayList;
+
+    public PirateStarship(Engine engine, Hull hull, Storage storage, int hitPoints,
+                          ArrayList<Starship> shipsFleetArrayList) {
+        super(engine, hull, storage, hitPoints);
+        shipsFleetArrayList.add(this);
+        this.shipsFleetArrayList = shipsFleetArrayList;
+    }
+
+    @Override
+    protected void onDestroy() {
+        shipsFleetArrayList.remove(this);
+    }
 }

@@ -5,17 +5,18 @@
 
 package rape.brutal.gitstarship.ammunition;
 
-import rape.brutal.gitstarship.IStorageable;
+import rape.brutal.gitstarship.IValuable;
 
 /**
  * Created by haze on 22.03.2017.
  */
-public class Magazine implements IStorageable {
+public class Magazine implements IValuable {
 
     private int capacity;
     private Ammo[] ammo;
     private String name;
     private int size;
+    private int cost;
 
     public int getCapacity() {
         return capacity;
@@ -53,5 +54,10 @@ public class Magazine implements IStorageable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int getCost() {
+        return cost;
     }
 }

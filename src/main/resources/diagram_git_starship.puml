@@ -93,8 +93,8 @@ package rape.brutal.gitstarship {
             -int hitPoints;
 
             +void Starship(Engine engine, Hull hull, Storage storage, int hitPoints);
-            +boolean putInStorage(IStoragable iStoragable);
-            +IStoragable getFromStorage(String iStoragableName);
+            +boolean putInStorage(IStorageable iStorageable);
+            +IStorageable getFromStorage(String iStorageableName);
             +void trade(Trader trader);
             +void attack(IAttackable iAttackable);
         }
@@ -175,7 +175,7 @@ package rape.brutal.gitstarship {
     IValuable <|.. ShipPart
     IValuable <|.. Gun
 
-    interface IValuable {
+    interface IValuable extends IStorageable {
         +int getCost();
     }
 

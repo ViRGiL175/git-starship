@@ -7,7 +7,10 @@ package rape.brutal.gitstarship.locations;
 
 import rape.brutal.gitstarship.ILandable;
 import rape.brutal.gitstarship.ships.GitStarship;
+import rape.brutal.gitstarship.stuff.Loot;
 import rape.brutal.gitstarship.trade.Trader;
+
+import java.util.ArrayList;
 
 /**
  * Created by haze on 22.03.2017.
@@ -16,16 +19,23 @@ public class Planet extends Location implements ILandable {
 
     private Trader trader;
 
-    public Trader getTrader() {
-        return trader;
-    }
-
-    public void setTrader(Trader trader) {
+    public Planet(Trader trader) {
         this.trader = trader;
+        generateLoot(getLootVariants());
     }
 
     @Override
     public void land(GitStarship gitStarship) {
 
+    }
+
+    @Override
+    protected void generateLoot(ArrayList<Loot> lootVariantsArrayList) {
+
+    }
+
+    @Override
+    protected ArrayList<Loot> getLootVariants() {
+        return null;
     }
 }

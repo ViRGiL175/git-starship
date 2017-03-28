@@ -6,29 +6,18 @@
 package rape.brutal.gitstarship.locations;
 
 import rape.brutal.gitstarship.Storage;
-import rape.brutal.gitstarship.ships.GitStarship;
+import rape.brutal.gitstarship.stuff.Loot;
+
+import java.util.ArrayList;
 
 /**
  * Created by haze on 22.03.2017.
  */
 public abstract class Location {
 
-    protected GitStarship gitStarship;
-    private Storage storage;
+    protected Storage storage;
 
-    public GitStarship getGitStarship() {
-        return gitStarship;
-    }
+    protected abstract void generateLoot(ArrayList<Loot> lootVariantsArrayList);
 
-    public void setGitStarship(GitStarship gitStarship) {
-        this.gitStarship = gitStarship;
-    }
-
-    public Storage getStorage() {
-        return storage;
-    }
-
-    public void setStorage(Storage storage) {
-        this.storage = storage;
-    }
+    protected abstract ArrayList<Loot> getLootVariants();
 }

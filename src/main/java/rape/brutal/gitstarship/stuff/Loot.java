@@ -7,12 +7,15 @@ package rape.brutal.gitstarship.stuff;
 
 import rape.brutal.gitstarship.IValuable;
 
+import java.util.Random;
+
 /**
  * Created by ViRGiL7 on 28.03.2017.
  * Project: java-git-starship
  */
 public abstract class Loot implements IValuable {
 
+    protected final Random random = new Random();
     protected int cost;
     protected int size;
     protected String name;
@@ -21,6 +24,7 @@ public abstract class Loot implements IValuable {
         this.cost = cost;
         this.size = size;
         this.name = name;
+        randomizeFields();
     }
 
     @Override
@@ -36,5 +40,9 @@ public abstract class Loot implements IValuable {
     @Override
     public int getCost() {
         return cost;
+    }
+
+    protected void randomizeFields() {
+
     }
 }

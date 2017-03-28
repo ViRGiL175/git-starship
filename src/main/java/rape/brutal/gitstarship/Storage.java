@@ -42,4 +42,11 @@ public class Storage {
     public IStorageable getItem(String itemName) {
         return this.itemsHashMap.get(itemName);
     }
+
+    public void putItems(Storage storage) {
+        Set<String> allItemNamesSet = storage.getAllItemNames();
+        for (String itemName : allItemNamesSet) {
+            putItem(storage.getItem(itemName));
+        }
+    }
 }

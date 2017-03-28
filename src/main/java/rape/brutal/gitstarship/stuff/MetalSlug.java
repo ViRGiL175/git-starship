@@ -12,7 +12,13 @@ import rape.brutal.gitstarship.IMagnetable;
  */
 public class MetalSlug extends Loot implements IMagnetable {
 
-    public MetalSlug(int cost, int size, String name) {
-        super(cost, size, name);
+    public MetalSlug() {
+        super(300, 50, "Metal Slug");
+    }
+
+    @Override
+    protected void randomizeFields() {
+        cost += random.nextInt(50);
+        size += random.nextInt(150);
     }
 }

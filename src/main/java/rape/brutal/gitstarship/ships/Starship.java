@@ -80,7 +80,7 @@ abstract public class Starship implements IAttackable {
     }
 
     private int generateDamage() {
-        Gun[] guns = hull.getGun();
+        Gun[] guns = hull.getGuns();
         int damage = 0;
         for (Gun gun : guns) {
             damage += gun.fire();

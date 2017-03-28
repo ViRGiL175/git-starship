@@ -13,23 +13,15 @@ import java.util.Set;
  */
 public class Storage {
 
-    protected HashMap<String, IStorageable> itemsHashMap;
+    private HashMap<String, IStorageable> itemsHashMap = new HashMap<>();
     private int capacity;
 
-    public HashMap<String, IStorageable> getItemsHashMap() {
-        return itemsHashMap;
-    }
-
-    public void setItemsHashMap(HashMap<String, IStorageable> itemsHashMap) {
-        this.itemsHashMap = itemsHashMap;
+    public Storage(int capacity) {
+        this.capacity = capacity;
     }
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     public Set<String> getAllItemNames() {
@@ -37,12 +29,17 @@ public class Storage {
     }
 
     public boolean putItem(IStorageable iStorageable) {
-
-        return false;
+        if (getCapacity() < iStorageable.getSize()) {
+            System.out.println("There is no empty space in storage!");
+            return false;
+        } else {
+            itemsHashMap.put(iStorageable.getName(), iStorageable);
+            capacity -= iStorageable.getSize();
+            return true;
+        }
     }
 
     public IStorageable getItem(String itemName) {
-
         return this.itemsHashMap.get(itemName);
     }
 }

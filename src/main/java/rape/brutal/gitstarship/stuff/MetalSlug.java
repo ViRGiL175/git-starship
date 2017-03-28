@@ -5,12 +5,14 @@
 
 package rape.brutal.gitstarship.stuff;
 
+import rape.brutal.gitstarship.IMagnetable;
+
 /**
  * Created by haze on 24.03.2017.
  */
-public class Sheep extends Loot {
+public class MetalSlug extends Loot implements IMagnetable {
 
-    public Sheep(int cost, int size, String name) {
+    public MetalSlug(int cost, int size, String name) {
         super(cost, size, name);
     }
 }

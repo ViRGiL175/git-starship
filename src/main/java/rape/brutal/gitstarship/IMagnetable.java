@@ -8,5 +8,6 @@ package rape.brutal.gitstarship;
 /**
  * Created by haze on 24.03.2017.
  */
-public interface IMagnetable {
+public interface IMagnetable extends IStorageable {
+
 }

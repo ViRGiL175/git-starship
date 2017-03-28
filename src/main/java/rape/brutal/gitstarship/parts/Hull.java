@@ -16,14 +16,14 @@ public class Hull extends ShipPart {
     private String name;
     private int size;
 
-    private Gun[] gun = new Gun[8];
+    private Gun[] guns = new Gun[8];
 
-    public Gun[] getGun() {
-        return gun;
+    public Gun[] getGuns() {
+        return guns;
     }
 
-    public void setGun(Gun[] gun) {
-        this.gun = gun;
+    public void setGuns(Gun[] guns) {
+        this.guns = guns;
     }
 
     public void addGun() {

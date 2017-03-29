@@ -13,6 +13,9 @@ import rape.brutal.gitstarship.parts.Engine;
 import rape.brutal.gitstarship.parts.Hull;
 import rape.brutal.gitstarship.trade.Trader;
 
+import java.util.Scanner;
+import java.util.Set;
+
 /**
  * Created by haze on 22.03.2017.
  */
@@ -99,4 +102,27 @@ abstract public class Starship implements IAttackable {
 
     protected abstract void onDestroy();
 
+    public void loot(Storage storage) {
+        System.out.println("You found:");
+        Set<String> allItemNamesSet = storage.getAllItemNames();
+        for (String itemName : allItemNamesSet) {
+            System.out.println(itemName);
+        }
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Take it? (y/n)");
+            String inputString = new Scanner(System.in).nextLine();  // Reading from System.in
+            switch (inputString) {
+                case "y":
+                    this.storage.putItems(storage);
+                    exit = true;
+                    break;
+                case "n":
+                    exit = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }

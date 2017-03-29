@@ -10,7 +10,13 @@ package rape.brutal.gitstarship.stuff;
  */
 public class Sheep extends Loot {
 
-    public Sheep(int cost, int size, String name) {
-        super(cost, size, name);
+    public Sheep() {
+        super(10, 20, "Sheep");
+    }
+
+    @Override
+    protected void randomizeFields() {
+        cost += random.nextInt(50);
+        size += random.nextInt(150);
     }
 }

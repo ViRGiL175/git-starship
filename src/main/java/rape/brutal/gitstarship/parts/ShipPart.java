@@ -12,8 +12,15 @@ import rape.brutal.gitstarship.IValuable;
  */
 abstract public class ShipPart implements IValuable {
 
-    private int size;
-    private String name;
+    protected int cost;
+    protected int size;
+    protected String name;
+
+    public ShipPart(int cost, int size, String name) {
+        this.cost = cost;
+        this.size = size;
+        this.name = name;
+    }
 
     @Override
     public int getSize() {

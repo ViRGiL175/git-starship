@@ -10,11 +10,12 @@ package rape.brutal.gitstarship.parts;
  */
 public class Engine extends ShipPart {
 
-    private int cost;
-    private String name;
-    private int size;
-
     private int power;
+
+    public Engine(int cost, int size, String name, int power) {
+        super(cost, size, name);
+        this.power = power;
+    }
 
     public int getPower() {
         return power;

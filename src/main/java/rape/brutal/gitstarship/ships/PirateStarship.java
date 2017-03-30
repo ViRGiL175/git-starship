@@ -6,8 +6,8 @@
 package rape.brutal.gitstarship.ships;
 
 import rape.brutal.gitstarship.Storage;
-import rape.brutal.gitstarship.parts.Engine;
 import rape.brutal.gitstarship.parts.Hull;
+import rape.brutal.gitstarship.parts.engine.Engine;
 
 import java.util.ArrayList;
 

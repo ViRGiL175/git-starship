@@ -9,8 +9,8 @@ import rape.brutal.gitstarship.IAttackable;
 import rape.brutal.gitstarship.IStorageable;
 import rape.brutal.gitstarship.Storage;
 import rape.brutal.gitstarship.ammunition.Gun;
-import rape.brutal.gitstarship.parts.Engine;
 import rape.brutal.gitstarship.parts.Hull;
+import rape.brutal.gitstarship.parts.engine.Engine;
 import rape.brutal.gitstarship.trade.Trader;
 
 import java.util.Scanner;

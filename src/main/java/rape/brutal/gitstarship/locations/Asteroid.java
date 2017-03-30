@@ -6,14 +6,13 @@
 package rape.brutal.gitstarship.locations;
 
 import rape.brutal.gitstarship.ILandable;
+import rape.brutal.gitstarship.IValuable;
 import rape.brutal.gitstarship.ships.GitStarShip;
-import rape.brutal.gitstarship.stuff.Loot;
 import rape.brutal.gitstarship.stuff.MetalSlug;
 import rape.brutal.gitstarship.stuff.Sheep;
 import rape.brutal.gitstarship.trade.Trader;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by haze on 22.03.2017.
@@ -28,17 +27,9 @@ public class Asteroid extends Location implements ILandable {
     }
 
     @Override
-    protected void generateLoot(ArrayList<Loot> lootVariantsArrayList) {
-        Random random = new Random();
-        for (int i = 0; i < random.nextInt(10); i++) {
-            int lootVariant = random.nextInt(lootVariantsArrayList.size());
-            storage.putItem(lootVariantsArrayList.get(lootVariant));
-        }
-    }
-
-    @Override
-    protected ArrayList<Loot> getLootVariants() {
-        ArrayList<Loot> lootArrayList = new ArrayList<>();
+    protected ArrayList<IValuable> getLootVariants() {
+        // todo: add loot variants
+        ArrayList<IValuable> lootArrayList = new ArrayList<>();
         lootArrayList.add(new MetalSlug());
         lootArrayList.add(new Sheep());
         return lootArrayList;

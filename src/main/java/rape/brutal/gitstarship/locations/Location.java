@@ -5,19 +5,11 @@
 
 package rape.brutal.gitstarship.locations;
 
-import rape.brutal.gitstarship.Storage;
-import rape.brutal.gitstarship.stuff.Loot;
-
-import java.util.ArrayList;
+import rape.brutal.gitstarship.stuff.LootableObject;
 
 /**
  * Created by haze on 22.03.2017.
  */
-public abstract class Location {
+public abstract class Location extends LootableObject {
 
-    protected Storage storage;
-
-    protected abstract void generateLoot(ArrayList<Loot> lootVariantsArrayList);
-
-    protected abstract ArrayList<Loot> getLootVariants();
 }

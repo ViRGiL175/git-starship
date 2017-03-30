@@ -5,10 +5,13 @@
 
 package rape.brutal.gitstarship.ships;
 
+import rape.brutal.gitstarship.IValuable;
 import rape.brutal.gitstarship.Storage;
 import rape.brutal.gitstarship.Universe;
 import rape.brutal.gitstarship.parts.engine.Engine;
 import rape.brutal.gitstarship.parts.hull.Hull;
+
+import java.util.ArrayList;
 
 /**
  * Created by haze on 22.03.2017.
@@ -25,5 +28,10 @@ public class GitStarShip extends StarShip {
     @Override
     protected void onDestroy() {
         universe.loseState();
+    }
+
+    @Override
+    protected ArrayList<IValuable> getLootVariants() {
+        return null;
     }
 }

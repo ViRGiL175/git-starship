@@ -38,7 +38,7 @@ public class Universe {
     }
 
     public void loseState() {
-
+        System.out.println("Lose test message");
     }
 
     public void getStats() {

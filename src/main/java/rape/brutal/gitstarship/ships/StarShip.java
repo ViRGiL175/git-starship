@@ -12,6 +12,7 @@ import rape.brutal.gitstarship.ammunition.Gun;
 import rape.brutal.gitstarship.parts.engine.Engine;
 import rape.brutal.gitstarship.parts.hull.Hull;
 import rape.brutal.gitstarship.stuff.Loot;
+import rape.brutal.gitstarship.stuff.LootableObject;
 import rape.brutal.gitstarship.trade.AverageTrader;
 import rape.brutal.gitstarship.trade.Mechanic;
 import rape.brutal.gitstarship.trade.Trader;
@@ -25,7 +26,7 @@ import java.util.Set;
 /**
  * Created by haze on 22.03.2017.
  */
-abstract public class StarShip implements IAttackable {
+abstract public class StarShip extends LootableObject implements IAttackable {
 
     protected Engine engine;
     protected Hull hull;
@@ -181,6 +182,8 @@ abstract public class StarShip implements IAttackable {
     }
 
     public void attack(IAttackable iAttackable) {
+        // todo: create getTag() or getName() method for all objects
+        System.out.println(this.getClass().getSimpleName() + " attack " + iAttackable.getClass().getSimpleName());
         iAttackable.setDamage(generateDamage());
     }
 
@@ -197,7 +200,9 @@ abstract public class StarShip implements IAttackable {
 
     @Override
     public void setDamage(int damage) {
+        System.out.println(this.getClass().getSimpleName() + " gets " + damage + " damage!");
         if (getHitPoints() <= damage) {
+            System.out.println(this.getClass().getSimpleName() + " is destroyed.");
             onDestroy();
         } else {
             setHitPoints(getHitPoints() - damage);

@@ -6,11 +6,8 @@
 package rape.brutal.gitstarship.ships;
 
 import org.testng.annotations.BeforeMethod;
-import rape.brutal.gitstarship.Storage;
 import rape.brutal.gitstarship.ammunition.Magazine;
 import rape.brutal.gitstarship.ammunition.Turret;
-import rape.brutal.gitstarship.parts.engine.MediumEngine;
-import rape.brutal.gitstarship.parts.hull.MediumHull;
 
 import java.util.ArrayList;
 
@@ -23,8 +20,7 @@ public class PirateStarShipTest extends StarShipTest {
     @BeforeMethod
     public void setUp() throws Exception {
         ArrayList<StarShip> shipsFleetArrayList = new ArrayList<>();
-        testingStarShip = new PirateStarShip(new MediumEngine(), new MediumHull(),
-                new Storage(5000), 560, shipsFleetArrayList);
+        testingStarShip = new PirateStarShip(shipsFleetArrayList);
         testingStarShip.getHull().addGun(new Turret(new Magazine(500)));
     }
 

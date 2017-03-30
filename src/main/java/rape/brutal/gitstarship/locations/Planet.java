@@ -6,8 +6,8 @@
 package rape.brutal.gitstarship.locations;
 
 import rape.brutal.gitstarship.ILandable;
+import rape.brutal.gitstarship.IValuable;
 import rape.brutal.gitstarship.ships.GitStarShip;
-import rape.brutal.gitstarship.stuff.Loot;
 import rape.brutal.gitstarship.trade.Trader;
 
 import java.util.ArrayList;
@@ -30,12 +30,8 @@ public class Planet extends Location implements ILandable {
     }
 
     @Override
-    protected void generateLoot(ArrayList<Loot> lootVariantsArrayList) {
-
-    }
-
-    @Override
-    protected ArrayList<Loot> getLootVariants() {
+    protected ArrayList<IValuable> getLootVariants() {
+        // todo: add loot variants
         return null;
     }
 }

@@ -7,9 +7,6 @@ package rape.brutal.gitstarship.ships;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import rape.brutal.gitstarship.Storage;
-import rape.brutal.gitstarship.parts.engine.MediumEngine;
-import rape.brutal.gitstarship.parts.hull.MediumHull;
 
 import java.util.ArrayList;
 
@@ -20,8 +17,7 @@ import java.util.ArrayList;
 public abstract class StarShipTest {
 
     protected StarShip testingStarShip;
-    private StarShip attackedStarShip = new PirateStarShip(new MediumEngine(), new MediumHull(),
-            new Storage(400), 50, new ArrayList<>());
+    private StarShip attackedStarShip = new PirateStarShip(new ArrayList<>());
 
     @DataProvider
     public static Object[][] getDamageData() {

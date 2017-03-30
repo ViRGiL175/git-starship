@@ -5,8 +5,8 @@
 
 package rape.brutal.gitstarship.locations;
 
+import rape.brutal.gitstarship.IValuable;
 import rape.brutal.gitstarship.ships.StarShip;
-import rape.brutal.gitstarship.stuff.Loot;
 
 import java.util.ArrayList;
 
@@ -23,12 +23,8 @@ public class OpenSpace extends Location {
     }
 
     @Override
-    protected void generateLoot(ArrayList<Loot> lootVariantsArrayList) {
-
-    }
-
-    @Override
-    protected ArrayList<Loot> getLootVariants() {
+    protected ArrayList<IValuable> getLootVariants() {
+        // todo: add loot variants
         return null;
     }
 }

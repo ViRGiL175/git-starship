@@ -15,6 +15,14 @@ public abstract class Gun implements IValuable {
     protected int damage;
     protected String name;
     protected int size;
+    protected int cost;
+
+    public Gun(int damage, String name, int size, int cost) {
+        this.damage = damage;
+        this.name = name;
+        this.size = size;
+        this.cost = cost;
+    }
 
     public int getDamage() {
         return damage;
@@ -42,7 +50,5 @@ public abstract class Gun implements IValuable {
         this.size = size;
     }
 
-    public int fire() {
-        return 0;
-    }
+    public abstract int fire();
 }

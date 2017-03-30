@@ -43,22 +43,22 @@ package rape.brutal.gitstarship {
         +abstract class Event {
             #Universe universe;
             #Location location;
-            #GitStarship gitStarship;
+            #GitStarship gitStarShip;
 
-            +void Event(Universe universe, GitStarship gitStarship);
+            +void Event(Universe universe, GitStarship gitStarShip);
             +void start();
         }
 
     }
 
     interface ILandable {
-        +void land(GitStarship gitStarship);
+        +void land(GitStarship gitStarShip);
     }
 
     package locations {
 
         +abstract class Location {
-            #GitStarship gitStarship;
+            #GitStarship gitStarShip;
             -Storage storage;
         }
 

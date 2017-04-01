@@ -24,6 +24,6 @@ public class GitStarship extends Starship {
 
     @Override
     protected void onDestroy() {
-        universe.loseState();
+        universe.loseState(this);
     }
 }

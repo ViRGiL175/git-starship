@@ -43,8 +43,11 @@ public class Magazine implements IValuable {
         this.ammo[numberOfBullet] = bullet;
     }
 
-    public int removeAmmo() {
-        int i = 0;
+    /**
+     * Shoot one ammo and returns damage.
+     */
+    public int shootAmmo() {
+        int i;
         int damage = 0;
         if (this.ammo[capacity - 1] == null) {
             System.out.println("Патроны в магазине закончились!");

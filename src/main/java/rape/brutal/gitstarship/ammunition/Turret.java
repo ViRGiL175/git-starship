@@ -13,7 +13,7 @@ public class Turret extends Gun {
     private Magazine loadedMagazine;
 
     public Turret(Magazine magazine) {
-        super(0, "Turret", 7, 45);
+        super("Turret", 7, 45);
         this.loadedMagazine = magazine;
     }
 
@@ -30,22 +30,12 @@ public class Turret extends Gun {
     }
 
     public int fire() {
-        return this.loadedMagazine.removeAmmo();
-    }
-
-    @Override
-    public int getDamage() {
-        return this.damage;
+        return this.loadedMagazine.shootAmmo();
     }
 
     @Override
     public int getSize() {
         return this.size;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 
     @Override

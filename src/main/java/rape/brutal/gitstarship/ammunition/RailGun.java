@@ -7,14 +7,21 @@ package rape.brutal.gitstarship.ammunition;
 
 import rape.brutal.gitstarship.IMagnetable;
 import rape.brutal.gitstarship.IStorageable;
+import rape.brutal.gitstarship.Storage;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by haze on 22.03.2017.
  */
-public class Railgun extends Gun {
+public class RailGun extends Gun {
 
-    public Railgun() {
-        super(1000, "Railgun", 10, 60);
+    private Storage storage;
+
+    public RailGun(Storage storage) {
+        super("RailGun", 10, 60);
+        this.storage = storage;
     }
 
     public int fire(IStorageable iStorageable) {
@@ -32,12 +39,15 @@ public class Railgun extends Gun {
 
     @Override
     public int fire() {
-        return 0;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
+        if (storage.getCapacity() > 0) {
+            ArrayList<String> namesArrayList = new ArrayList<>(storage.getAllItemNames());
+            String selectedItemName = namesArrayList.get(new Random().nextInt(namesArrayList.size()));
+            int damage = storage.getItem(selectedItemName).getSize();
+            storage.deleteItem(selectedItemName);
+            return damage;
+        } else {
+            return 0;
+        }
     }
 
     @Override

@@ -44,7 +44,7 @@ public abstract class Hull extends ShipPart {
                 System.out.println("\tПушка\tУрон\tРазмер\tСтоимость");
                 for (int i = 0; i < 8; i++) {
                     System.out.println("№" + i + "\t" + guns[i].getName() + "\t" +
-                            guns[i].getDamage() + "\t\t" + guns[i].getSize() + "\t\t" + guns[i].getCost());
+                            "\t\t" + guns[i].getSize() + "\t\t" + guns[i].getCost());
                 }
 
                 System.out.println("Введите номер заменяемой пушки");

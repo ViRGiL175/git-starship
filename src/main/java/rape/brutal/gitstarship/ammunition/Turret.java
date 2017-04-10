@@ -10,11 +10,12 @@ package rape.brutal.gitstarship.ammunition;
  */
 public class Turret extends Gun {
 
-    private int cost;
-    private String name;
-    private int size;
-
     private Magazine loadedMagazine;
+
+    public Turret(Magazine magazine) {
+        super("Turret", 7, 45);
+        this.loadedMagazine = magazine;
+    }
 
     public Magazine getLoadedMagazine() {
         return loadedMagazine;
@@ -25,17 +26,16 @@ public class Turret extends Gun {
     }
 
     public void reload(Magazine magazine) {
+        this.loadedMagazine = magazine;
+    }
 
+    public int fire() {
+        return this.loadedMagazine.shootAmmo();
     }
 
     @Override
     public int getSize() {
         return this.size;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 
     @Override

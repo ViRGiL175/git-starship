@@ -12,16 +12,14 @@ import rape.brutal.gitstarship.IValuable;
  */
 public abstract class Gun implements IValuable {
 
-    protected int damage;
     protected String name;
     protected int size;
+    protected int cost;
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public Gun(String name, int size, int cost) {
+        this.name = name + hashCode();
+        this.size = size;
+        this.cost = cost;
     }
 
     @Override
@@ -42,7 +40,5 @@ public abstract class Gun implements IValuable {
         this.size = size;
     }
 
-    public int fire() {
-        return 0;
-    }
+    public abstract int fire();
 }

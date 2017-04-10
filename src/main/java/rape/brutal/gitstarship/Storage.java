@@ -49,4 +49,8 @@ public class Storage {
             putItem(storage.getItem(itemName));
         }
     }
+
+    public void deleteItem(String itemName) {
+        itemsHashMap.remove(itemName);
+    }
 }

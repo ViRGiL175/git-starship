@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /**
  * Created by haze on 22.03.2017.
  */
-public class PirateStarship extends Starship {
+public class PirateStarShip extends StarShip {
 
-    private ArrayList<Starship> shipsFleetArrayList;
+    private ArrayList<StarShip> shipsFleetArrayList;
 
-    public PirateStarship(Engine engine, Hull hull, Storage storage, int hitPoints,
-                          ArrayList<Starship> shipsFleetArrayList) {
+    public PirateStarShip(Engine engine, Hull hull, Storage storage, int hitPoints,
+                          ArrayList<StarShip> shipsFleetArrayList) {
         super(engine, hull, storage, hitPoints);
         shipsFleetArrayList.add(this);
         this.shipsFleetArrayList = shipsFleetArrayList;

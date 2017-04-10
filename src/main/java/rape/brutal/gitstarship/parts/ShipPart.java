@@ -19,7 +19,7 @@ abstract public class ShipPart implements IValuable {
     public ShipPart(int cost, int size, String name) {
         this.cost = cost;
         this.size = size;
-        this.name = name;
+        this.name = name + hashCode();
     }
 
     @Override
@@ -34,9 +34,5 @@ abstract public class ShipPart implements IValuable {
     @Override
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

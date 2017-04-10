@@ -6,7 +6,7 @@
 package rape.brutal.gitstarship.locations;
 
 import rape.brutal.gitstarship.ILandable;
-import rape.brutal.gitstarship.ships.GitStarship;
+import rape.brutal.gitstarship.ships.GitStarShip;
 import rape.brutal.gitstarship.stuff.Loot;
 import rape.brutal.gitstarship.stuff.MetalSlug;
 import rape.brutal.gitstarship.stuff.Sheep;
@@ -45,7 +45,7 @@ public class Asteroid extends Location implements ILandable {
     }
 
     @Override
-    public void land(GitStarship gitStarship) {
+    public void land(GitStarShip gitStarship) {
         System.out.println("You land on average desert cold asteroid.");
         if (!storage.getAllItemNames().isEmpty()) {
             System.out.println("Hurray! You find some loot!");

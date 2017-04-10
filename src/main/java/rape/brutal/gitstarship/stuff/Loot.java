@@ -23,7 +23,7 @@ public abstract class Loot implements IValuable {
     public Loot(int cost, int size, String name) {
         this.cost = cost;
         this.size = size;
-        this.name = name;
+        this.name = name + hashCode();
         randomizeFields();
     }
 

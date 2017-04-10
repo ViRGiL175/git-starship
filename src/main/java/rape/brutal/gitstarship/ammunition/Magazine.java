@@ -6,17 +6,30 @@
 package rape.brutal.gitstarship.ammunition;
 
 import rape.brutal.gitstarship.IValuable;
+import rape.brutal.gitstarship.ammunition.bullet.AverageBullet;
+
 
 /**
  * Created by haze on 22.03.2017.
  */
 public class Magazine implements IValuable {
 
-    private int capacity;
-    private Ammo[] ammo;
-    private String name;
-    private int size;
-    private int cost;
+    protected int capacity;
+    protected Ammo[] ammo;
+    protected String name;
+    protected int size;
+    protected int cost;
+
+    public Magazine(int capacity) {
+        this.capacity = capacity;
+        this.name = "Magazine " + hashCode();
+        this.size = 3;
+        this.cost = 12;
+        this.ammo = new Ammo[capacity];
+        for (int i = 0; i < ammo.length; i++) {
+            ammo[i] = new AverageBullet();
+        }
+    }
 
     public int getCapacity() {
         return capacity;
@@ -30,12 +43,29 @@ public class Magazine implements IValuable {
         return ammo;
     }
 
-    public void setAmmo(Ammo[] ammo) {
-        this.ammo = ammo;
+    public void setAmmo(int numberOfBullet, Ammo bullet) {
+        this.ammo[numberOfBullet] = bullet;
     }
 
-    public void removeAmmo() {
+    /**
+     * Shoot one ammo and returns damage.
+     */
+    public int shootAmmo() {
+        int i;
+        int damage = 0;
+        if (this.ammo[capacity - 1] == null) {
+            System.out.println("Патроны в магазине закончились!");
+        }
+        for (i = 0; i < capacity; i++) {
+            if (this.ammo[i] != null) {
+                damage = ammo[i].getDamage();
+                this.ammo[i] = null;
+                System.out.println("Выстрел совершён!");
+                break;
+            }
 
+        }
+        return damage;
     }
 
     @Override

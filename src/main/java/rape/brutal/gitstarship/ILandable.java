@@ -5,12 +5,12 @@
 
 package rape.brutal.gitstarship;
 
-import rape.brutal.gitstarship.ships.GitStarship;
+import rape.brutal.gitstarship.ships.GitStarShip;
 
 /**
  * Created by haze on 22.03.2017.
  */
 public interface ILandable {
 
-    void land(GitStarship gitStarship);
+    void land(GitStarShip gitStarship);
 }

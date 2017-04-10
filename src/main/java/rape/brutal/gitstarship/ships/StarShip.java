@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * Created by haze on 22.03.2017.
  */
-abstract public class Starship implements IAttackable {
+abstract public class StarShip implements IAttackable {
 
     protected Engine engine;
     protected Hull hull;
@@ -33,7 +33,7 @@ abstract public class Starship implements IAttackable {
     private int hitPoints;
     private int money = 0;
 
-    public Starship(Engine engine, Hull hull, Storage storage, int hitPoints) {
+    public StarShip(Engine engine, Hull hull, Storage storage, int hitPoints) {
         this.engine = engine;
         this.hull = hull;
         this.storage = storage;
@@ -188,7 +188,9 @@ abstract public class Starship implements IAttackable {
         Gun[] guns = hull.getGuns();
         int damage = 0;
         for (Gun gun : guns) {
-            damage += gun.fire();
+            if (gun != null) {
+                damage += gun.fire();
+            }
         }
         return damage;
     }

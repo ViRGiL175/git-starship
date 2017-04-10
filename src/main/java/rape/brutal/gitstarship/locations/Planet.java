@@ -6,7 +6,7 @@
 package rape.brutal.gitstarship.locations;
 
 import rape.brutal.gitstarship.ILandable;
-import rape.brutal.gitstarship.ships.GitStarship;
+import rape.brutal.gitstarship.ships.GitStarShip;
 import rape.brutal.gitstarship.stuff.Loot;
 import rape.brutal.gitstarship.trade.Trader;
 
@@ -25,7 +25,7 @@ public class Planet extends Location implements ILandable {
     }
 
     @Override
-    public void land(GitStarship gitStarship) {
+    public void land(GitStarShip gitStarship) {
 
     }
 

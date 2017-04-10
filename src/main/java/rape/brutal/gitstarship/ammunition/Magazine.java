@@ -6,6 +6,7 @@
 package rape.brutal.gitstarship.ammunition;
 
 import rape.brutal.gitstarship.IValuable;
+import rape.brutal.gitstarship.ammunition.bullet.AverageBullet;
 
 
 /**
@@ -25,6 +26,9 @@ public class Magazine implements IValuable {
         this.size = 3;
         this.cost = 12;
         this.ammo = new Ammo[capacity];
+        for (int i = 0; i < ammo.length; i++) {
+            ammo[i] = new AverageBullet();
+        }
     }
 
     public int getCapacity() {

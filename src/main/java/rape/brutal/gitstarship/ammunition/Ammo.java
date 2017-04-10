@@ -8,7 +8,7 @@ package rape.brutal.gitstarship.ammunition;
 /**
  * Created by haze on 22.03.2017.
  */
-public class Ammo {
+public abstract class Ammo {
 
     protected int damageIncreasing = 0;
     protected int damage;

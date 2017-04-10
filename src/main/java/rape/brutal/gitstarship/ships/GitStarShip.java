@@ -13,11 +13,11 @@ import rape.brutal.gitstarship.parts.hull.Hull;
 /**
  * Created by haze on 22.03.2017.
  */
-public class GitStarship extends Starship {
+public class GitStarShip extends StarShip {
 
     private Universe universe;
 
-    public GitStarship(Engine engine, Hull hull, Storage storage, int hitPoints, Universe universe) {
+    public GitStarShip(Engine engine, Hull hull, Storage storage, int hitPoints, Universe universe) {
         super(engine, hull, storage, hitPoints);
         this.universe = universe;
     }

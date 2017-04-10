@@ -5,7 +5,7 @@
 
 package rape.brutal.gitstarship.locations;
 
-import rape.brutal.gitstarship.ships.Starship;
+import rape.brutal.gitstarship.ships.StarShip;
 import rape.brutal.gitstarship.stuff.Loot;
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public class OpenSpace extends Location {
 
-    private ArrayList<Starship> enemyShips;
+    private ArrayList<StarShip> enemyShips;
 
-    public OpenSpace(ArrayList<Starship> enemyShips) {
+    public OpenSpace(ArrayList<StarShip> enemyShips) {
         this.enemyShips = enemyShips;
         generateLoot(getLootVariants());
     }

@@ -3,9 +3,10 @@
  * Licensed under the Apache License, Version 2.0
  */
 
-package rape.brutal.gitstarship.parts;
+package rape.brutal.gitstarship.parts.hull;
 
 import rape.brutal.gitstarship.ammunition.Gun;
+import rape.brutal.gitstarship.parts.ShipPart;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 /**
  * Created by haze on 22.03.2017.
  */
-public class Hull extends ShipPart {
+public abstract class Hull extends ShipPart {
 
     private Gun[] guns;
 

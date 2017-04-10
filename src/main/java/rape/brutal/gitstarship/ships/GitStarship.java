@@ -7,8 +7,8 @@ package rape.brutal.gitstarship.ships;
 
 import rape.brutal.gitstarship.Storage;
 import rape.brutal.gitstarship.Universe;
-import rape.brutal.gitstarship.parts.Hull;
 import rape.brutal.gitstarship.parts.engine.Engine;
+import rape.brutal.gitstarship.parts.hull.Hull;
 
 /**
  * Created by haze on 22.03.2017.

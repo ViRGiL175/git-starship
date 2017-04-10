@@ -10,7 +10,7 @@ import rape.brutal.gitstarship.parts.ShipPart;
 /**
  * Created by haze on 22.03.2017.
  */
-public class Engine extends ShipPart {
+public abstract class Engine extends ShipPart {
 
     private int power;
 

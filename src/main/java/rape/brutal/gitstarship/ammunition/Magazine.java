@@ -22,7 +22,7 @@ public class Magazine implements IValuable {
 
     public Magazine(int capacity) {
         this.capacity = capacity;
-        this.name = "Magazine";
+        this.name = "Magazine " + hashCode();
         this.size = 3;
         this.cost = 12;
         this.ammo = new Ammo[capacity];

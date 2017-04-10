@@ -17,7 +17,7 @@ public abstract class Gun implements IValuable {
     protected int cost;
 
     public Gun(String name, int size, int cost) {
-        this.name = name;
+        this.name = name + hashCode();
         this.size = size;
         this.cost = cost;
     }

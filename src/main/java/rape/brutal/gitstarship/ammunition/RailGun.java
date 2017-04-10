@@ -24,14 +24,6 @@ public class RailGun extends Gun {
         this.storage = storage;
     }
 
-    public int fire(IStorageable iStorageable) {
-        if (iStorageable instanceof IMagnetable) {
-            System.out.println("Раилган пальнул!");
-            return iStorageable.getSize() * 10;
-        } else System.out.println("Не магнитная штука!");
-        return 0;
-    }
-
     @Override
     public int getSize() {
         return this.size;
@@ -41,9 +33,15 @@ public class RailGun extends Gun {
     public int fire() {
         if (storage.getCapacity() > 0) {
             ArrayList<String> namesArrayList = new ArrayList<>(storage.getAllItemNames());
+            for (String name : namesArrayList) {
+                if (!(storage.getItem(name) instanceof IMagnetable)) {
+                    namesArrayList.remove(name);
+                }
+            }
             String selectedItemName = namesArrayList.get(new Random().nextInt(namesArrayList.size()));
-            int damage = storage.getItem(selectedItemName).getSize();
-            storage.deleteItem(selectedItemName);
+            IStorageable storageItem = storage.getItem(selectedItemName);
+            int damage = storageItem.getSize();
+            storage.deleteItem(storageItem.getName());
             return damage;
         } else {
             return 0;
